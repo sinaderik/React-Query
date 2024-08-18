@@ -4,11 +4,20 @@ import Count from '../components/Count'
 import { useQuery } from 'react-query'
 const Courses = () => {
 
-    const { data, isLoading,error, isError } = useQuery('Courses', () =>{
+    const { data, isLoading, error, isError, isFetching } = useQuery('Courses', () => {
         // throw new Error('Server Error 500')
         return fetch('http://localhost:4000/courses').then(res => res.json())
-    }
-)
+    },
+        {
+            cacheTime: 500000,
+            staleTime: 8000,
+            refetchOnMount:false,
+            refetchOnWindowFocus:true,
+            refetchInterval:3000,
+            refetchIntervalInBackground:false,
+        }
+    )
+    console.log('is fetching=>', isFetching)
     // const [data, setData] = useState([])
 
     // useEffect(() => {
@@ -21,11 +30,11 @@ const Courses = () => {
     //     setData(allCourses)
     // }
     if (isLoading) {
-        return(
+        return (
             <h3 className='text-center'>Loading...</h3>
         )
     }
-    if(isError){
+    if (isError) {
         return (
             <h3 className='text-center'>{error.message}</h3>
         )

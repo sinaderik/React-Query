@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Courses from './pages/Courses'
 import Home from './pages/Home'
 import { QueryClientProvider, QueryClient } from 'react-query'
+import {ReactQueryDevtools} from 'react-query/devtools'
 
 const App = () => {
   const client = new QueryClient
@@ -15,6 +16,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
         </Routes>
+        <ReactQueryDevtools />
       </QueryClientProvider>
     </>
   )
