@@ -1,10 +1,12 @@
 import React from 'react'
-import Navbar from './components/Navbar'
 import { Route, Routes } from 'react-router-dom'
-import Courses from './pages/Courses'
+import Navbar from './components/Navbar'
 import Home from './pages/Home'
+
+import Courses from './pages/Courses'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import {ReactQueryDevtools} from 'react-query/devtools'
+import SingleCourse from './pages/SingleCourse'
 
 const App = () => {
   const client = new QueryClient
@@ -15,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
+          <Route path='/courses/:id' element={<SingleCourse />} />
         </Routes>
         <ReactQueryDevtools />
       </QueryClientProvider>
