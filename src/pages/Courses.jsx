@@ -1,22 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Course from '../components/Course'
 import Count from '../components/Count'
-import { useQuery } from 'react-query'
+import useCourses from '../hooks/useCourses'
 const Courses = () => {
 
-    const { data, isLoading, error, isError, isFetching } = useQuery('Courses', () => {
-        // throw new Error('Server Error 500')
-        return fetch('http://localhost:4000/courses').then(res => res.json())
-    },
-        {
-            cacheTime: 500000,
-            staleTime: 8000,
-            refetchOnMount:false,
-            refetchOnWindowFocus:true,
-            refetchInterval:3000,
-            refetchIntervalInBackground:false,
-        }
-    )
+    const { data, isLoading, error, isError, isFetching } = useCourses()
     console.log('is fetching=>', isFetching)
     // const [data, setData] = useState([])
 

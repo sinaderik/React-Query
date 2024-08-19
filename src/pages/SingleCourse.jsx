@@ -1,13 +1,13 @@
 import React from 'react'
-import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
+import useCourse from '../hooks/useCourse'
 
 function SingleCourse() {
     const { id } = useParams()
-    const {data,isLoading}=useQuery(['single course',id],()=>(
-        fetch(`http://localhost:4000/courses/${id}`).then(res=>res.json())
-    ))
+    const {data,isLoading}=useCourse(id)
+
     console.log(data)
+
     if(isLoading){
         return(
             <h2>Loading...</h2>
