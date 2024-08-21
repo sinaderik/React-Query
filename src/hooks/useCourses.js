@@ -1,17 +1,27 @@
 import { useQuery } from 'react-query'
 
 function useCourses() {
-    return useQuery('Courses', () => {
+    return useQuery('Courses', () =>{ 
         // throw new Error('Server Error 500')
         return fetch('http://localhost:4000/courses').then(res => res.json())
     },
         {
-            cacheTime: 500000,
-            staleTime: 8000,
-            refetchOnMount: false,
-            refetchOnWindowFocus: true,
-            refetchInterval: 3000,
-            refetchIntervalInBackground: false,
+            refetchInterval:20000,
+            select: (data) => {
+                return data.map((course) => (
+                    {
+                        ...course,
+                        title: course.title.toUpperCase(),
+                        price:course.price.toLocaleString(),
+                    }
+                ))
+            },
+            onSuccess:()=>{
+                console.log('Success')
+            },
+            onError:()=>{
+                console.log('Error')
+            }
         }
     )
 }

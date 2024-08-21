@@ -9,7 +9,7 @@ import {ReactQueryDevtools} from 'react-query/devtools'
 import SingleCourse from './pages/SingleCourse'
 
 const App = () => {
-  const client = new QueryClient
+  const client = new QueryClient();
   return (
     <>
       <QueryClientProvider client={client}>

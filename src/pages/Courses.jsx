@@ -6,17 +6,7 @@ const Courses = () => {
 
     const { data, isLoading, error, isError, isFetching } = useCourses()
     console.log('is fetching=>', isFetching)
-    // const [data, setData] = useState([])
 
-    // useEffect(() => {
-    //     callApi()
-    // }, [])
-
-    // const callApi = async () => {
-    //     const response = await fetch('http://localhost:4000/courses')
-    //     const allCourses = await response.json()
-    //     setData(allCourses)
-    // }
     if (isLoading) {
         return (
             <h3 className='text-center'>Loading...</h3>
