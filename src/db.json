@@ -1,9 +1,51 @@
 {
-    "courses": [
-      { "id": "1", "title": "React js", "price": 20000 },
-      { "id": "2", "title": "Node js", "price": 45000 },
-      { "id": "3", "title": "Typescript", "price": 32000 },
-      { "id": "4", "title": "Tailwind", "price": 74000 },
-      { "id": "5", "title": "Redux toolkit", "price": 12000 }
-    ]
-  }
+  "courses": [
+    {
+      "id": "1",
+      "title": "React js",
+      "price": 20000
+    },
+    {
+      "id": "2",
+      "title": "Node js",
+      "price": 45000
+    },
+    {
+      "id": "3",
+      "title": "Typescript",
+      "price": 32000
+    },
+    {
+      "id": "4",
+      "title": "Tailwind",
+      "price": 74000
+    },
+    {
+      "id": "5",
+      "title": "Redux toolkit",
+      "price": 12000
+    }
+  ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "TS vs JS"
+    },
+    {
+      "id": "2",
+      "title": "Front vs Backend"
+    },
+    {
+      "id": "3",
+      "title": "React vs Vue"
+    },
+    {
+      "id": "4",
+      "title": "Flutter vs React native"
+    },
+    {
+      "id": "5",
+      "title": "Windows vs linux"
+    }
+  ]
+}
