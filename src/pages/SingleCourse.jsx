@@ -4,9 +4,9 @@ import useCourse from '../hooks/useCourse'
 
 function SingleCourse() {
     const { id } = useParams()
-    const {data,isLoading}=useCourse(id)
+    const {data,isLoading,isFetching}=useCourse(id)
+    console.log(' SingleCourse is fetching=>', isFetching)
 
-    console.log(data)
 
     if(isLoading){
         return(

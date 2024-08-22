@@ -4,12 +4,14 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 
 import Courses from './pages/Courses'
-import { QueryClientProvider, QueryClient } from 'react-query'
-import {ReactQueryDevtools} from 'react-query/devtools'
+import { QueryClientProvider, QueryClient, useQueryClient } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import SingleCourse from './pages/SingleCourse'
 
 const App = () => {
   const client = new QueryClient();
+
+
   return (
     <>
       <QueryClientProvider client={client}>

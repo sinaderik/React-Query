@@ -5,7 +5,7 @@ import useCourses from '../hooks/useCourses'
 const Courses = () => {
 
     const { data, isLoading, error, isError, isFetching } = useCourses()
-    console.log('is fetching=>', isFetching)
+    console.log('Courses is fetching=>', isFetching)
 
     if (isLoading) {
         return (
