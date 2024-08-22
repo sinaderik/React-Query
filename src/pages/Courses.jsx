@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Course from '../components/Course'
 import Count from '../components/Count'
 import useCourses from '../hooks/useCourses'
-import { useMutation } from 'react-query'
-import { Navigate, json, useNavigate } from 'react-router-dom'
+import usePostCourse from '../hooks/usePostCourse'
+
+
 const Courses = () => {
 
     const { data, isLoading, error, isError, isFetching } = useCourses();
@@ -11,19 +12,13 @@ const Courses = () => {
     const [price, setPrice] = useState('');
 
 
-    const { mutate: addCourse } = useMutation((cousre) => (
-        fetch('http://localhost:4000/courses', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/josn"
-            },
-            body: JSON.stringify({ ...cousre })
-        })
-    ))
+    const { mutate: addCourse } = usePostCourse()
 
     function addCourseHandler(event) {
         event.preventDefault();
         addCourse({ title, price })
+        setPrice('')
+        setTitle('')
     }
 
     if (isLoading) {
